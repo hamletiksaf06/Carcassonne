@@ -53,6 +53,12 @@
   <div class="px" id="final"><h2>Final scoring</h2><div class="tot"><div><img id="fIcon0" alt=""><span id="fName0"></span></div><span id="fTot0"></span></div>
     <div class="tot"><div><img id="fIcon1" alt=""><span id="fName1"></span></div><span id="fTot1"></span></div><div id="lines"></div>
     <button class="pb px tb hide" id="btnShowWin">Show result</button></div>
+  <div id="chat">
+    <button class="pb px" id="chatTab" aria-label="Open chat"><img src="img/i_slide_handle.png" alt=""><i id="chatDot"></i></button>
+    <div class="hd" id="chatHd"></div>
+    <div id="msgs"></div>
+    <form id="chatForm"><input class="inp" id="chatIn" maxlength="200" placeholder="Type a message" autocomplete="off"><button class="pb px ib" aria-label="Send"><img src="img/i_send.png" alt=""></button></form>
+  </div>
 </section>
 <div id="float"></div>
 
@@ -91,6 +97,7 @@
 
 <div class="dim" id="mMenu"><div class="modal px">
   <h2 id="menuTitle">Menu</h2>
+  <div class="row"><button class="pb px tb" id="menuRules">Rulebook</button><button class="pb px tb" id="menuStats">Stats</button><button class="pb px tb" id="menuSet">Settings</button></div>
   <button class="pb px tb" id="menuBack" style="width:100%">Back to start</button>
   <button class="pb px tb" id="menuEnd" style="width:100%">End game</button>
   <button class="pb px tb" id="menuClose" style="width:100%">Close</button>
@@ -104,8 +111,21 @@
 <div class="dim" id="mWin" style="z-index:15"><div class="modal px">
   <div class="wface"><img class="f" id="wFace" alt=""><img class="c" id="wCrown" src="img/i_crown.png" alt=""></div>
   <h2 id="wTitle"></h2><div id="wScore"></div>
-  <div class="row"><button class="pb px tb" id="wBoard">View final board</button><button class="pb px tb" id="wBack">Back to start</button></div>
+  <div class="row"><button class="pb px tb" id="wRematch">Rematch</button><button class="pb px tb" id="wBoard">View final board</button></div>
+  <div class="row"><button class="pb px tb" id="wStats">Stats</button><button class="pb px tb" id="wBack">Back to start</button></div>
 </div></div>
+
+<div class="dim" id="mSet" style="z-index:40"><div class="modal px" style="min-width:400px">
+  <div class="row" style="width:100%;justify-content:space-between"><h2>Settings</h2><button class="pb px ib sm" id="setClose" aria-label="Close settings"><img src="img/i_close.png" alt=""></button></div>
+  <div class="sgrid" id="sgrid"></div>
+</div></div>
+
+<div class="book px" id="book">
+  <div class="bhead"><h1 id="bookTitle"></h1><button class="pb px ib" id="bookClose" aria-label="Close"><img src="img/i_close.png" alt=""></button></div>
+  <div class="bpage" id="rbPage"><div class="pic" id="rbPic"></div><div class="txt" id="rbTxt"></div></div>
+  <div class="bfoot" id="rbFoot"><button class="pb px ib" id="rbPrev" aria-label="Previous page"><img src="img/i_previous.png" alt=""></button><span id="rbCount"></span><button class="pb px ib" id="rbNext" aria-label="Next page"><img src="img/i_next.png" alt=""></button></div>
+  <div class="spage" id="stPage"><div class="vsbar px" id="stVs"></div><div class="opts" id="stOpp"></div><div class="stgrid"><table id="stTbl"></table></div></div>
+</div>
 
 <div class="toast px" id="toast"></div>
 <div class="turn">Turn your phone sideways</div>

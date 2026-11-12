@@ -1,5 +1,5 @@
 // Network first, cache as fallback, so updates always arrive when online.
-const CACHE="carc-v4";
+const CACHE="carc-v6";
 self.addEventListener("install",e=>self.skipWaiting());
 self.addEventListener("activate",e=>e.waitUntil(self.clients.claim()));
 self.addEventListener("fetch",e=>{
