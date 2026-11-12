@@ -8,7 +8,7 @@ const iconBtn=(src,label,fn,small)=>{const b=el("button","pb px ib"+(small?" sm"
 const face=ic=>"img/"+(ic==="girl"?"i_girl":"i_boy")+".png";
 const COLORS=["blue","yellow","red","purple"];
 const CHALLENGE_MS=20*60*1000;
-let toastT;function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("on"),2200)}
+let toastT;function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("on"),Math.max(2200,m.length*55))}
 const show=(id,on=true)=>$(id).classList.toggle("on",on);
 if("serviceWorker"in navigator&&!LOCAL)navigator.serviceWorker.register("sw.js").catch(()=>{});
 
@@ -131,6 +131,7 @@ async function accept(c){
 
 /* ---------------- game: sync ---------------- */
 let gameId=null,unsub=null,gd=null,G=null,cur=null,myIdx=-1,phase="wait",ghost=null,pick=null,sim=null,spots=[],hintList=[];
+const flying=[];let hl=null;
 let warned=false,popKey=null,popT=0,unsubChat=null,chatMsgs=[],chatSeenInit=false;
 let seenMoves=null,finalDone=false,finalEvents=null,preScores=null,busy=false,rollPlaying=false,needFit=true;
 function enterGame(id){
@@ -150,12 +151,14 @@ function onGame(){
   const d=gd;
   if(d.nextGame){enterGame(d.nextGame);return}
   if(d.status==="color"){G=null;showVs();return}
+  const prevFols=G?G.fols.map(f=>{const c=G.board[f.x+","+f.y];return{...f,t:c.t,k:c.k,color:gd.colors[d.order[f.pl]]}}):null;
   G=replay(d);myIdx=d.order.indexOf(uid);cur=d.status==="over"&&d.ended?null:E.draw(G);
   hintList=cur!=null?E.placements(G,cur):[];
   showVs();
   // score banners for moves that arrived while watching
   if(seenMoves!=null&&d.moves.length>seenMoves){G.log.filter(l=>l.type==="turn").slice(seenMoves).forEach(l=>l.events.filter(e=>e.type==="score").forEach(queueBanner))}
   const seenBefore=seenMoves,newMoves=seenMoves==null||d.moves.length!==seenMoves;seenMoves=d.moves.length;
+  if(newMoves&&seenBefore!=null&&prevFols&&settings.anim)prevFols.filter(p=>!G.fols.some(f=>f.x===p.x&&f.y===p.y&&f.kind===p.kind&&f.i===p.i)).forEach(p=>flying.push({...p,t0:performance.now()}));
   if(newMoves){ghost=null;pick=null;sim=null;warned=false;
     if(d.moves.length){const m=d.moves[d.moves.length-1];if(seenBefore!=null){popKey=m.x+","+m.y;popT=performance.now();if(d.order[1-G.turn]!==uid||m.auto)sfx("place")}}}
   if(cur==null){phase="over";if(!d.ended){preScores=G.scores.slice();finalEvents=E.finalScoring(G)}finish()}
@@ -293,7 +296,7 @@ function showWinner(){
 }
 $("wBoard").onclick=()=>show("mWin",false);$("btnShowWin").onclick=showWinner;$("wBack").onclick=()=>backToStart(true);
 $("btnMenu").onclick=()=>{$("menuTitle").textContent=gd?gd.name:"Menu";$("menuEnd").classList.toggle("hide",!gd||gd.status!=="playing");show("mMenu")};
-$("menuClose").onclick=()=>show("mMenu",false);$("menuRules").onclick=()=>{show("mMenu",false);openRules()};$("menuStats").onclick=()=>{show("mMenu",false);openStats()};$("menuSet").onclick=()=>{show("mMenu",false);openSettings()};$("menuBack").onclick=()=>backToStart(false);
+$("menuClose").onclick=()=>show("mMenu",false);$("menuRules").onclick=()=>{show("mMenu",false);openRules()};$("menuStats").onclick=()=>{show("mMenu",false);openStats()};$("menuSet").onclick=()=>{show("mMenu",false);openSettings()};$("menuHist").onclick=()=>{show("mMenu",false);openHistory()};$("menuBack").onclick=()=>backToStart(false);
 $("menuEnd").onclick=()=>{show("mMenu",false);show("mConfirm")};$("endNo").onclick=()=>show("mConfirm",false);
 $("endYes").onclick=async()=>{show("mConfirm",false);if(!gd||gd.status!=="playing"||!G)return;
   try{await recordResult({scores:G.scores.slice(),winner:other(uid),best:G.best,endedBy:uid})}catch(e){toast("Could not end the game. Try again.");console.error(e)}};
@@ -339,6 +342,10 @@ function drawFollower(color,t,k,x,y,kind,i){const img=FOL[color];if(!img.complet
   }
   if(phase==="follower"&&ghost)drawTile(cur,ghost.x,ghost.y,ghost.k);
   G.fols.forEach(f=>{const c=G.board[f.x+","+f.y];drawFollower(colorOf(f.pl),c.t,c.k,f.x,f.y,f.kind,f.i)});
+  for(let n=flying.length-1;n>=0;n--){const f=flying[n],q=(now-f.t0-500)/600,img=FOL[f.color];if(q>=1){flying.splice(n,1);continue}
+    const[px,py]=cellPx(f.x,f.y),p=E.spotPos(f.t,f.k,f.kind,f.i),e=Math.max(0,q),ez=e*e*(3-2*e),sx=px+p[0]*s,sy=py+p[1]*s,tx=(150+f.pl*100)*V.dpr,ty=30*V.dpr;
+    ctx.drawImage(img,Math.round(sx+(tx-sx)*ez-img.width*s/2),Math.round(sy+(ty-sy)*ez-Math.sin(e*Math.PI)*30*V.dpr-img.height*s/2),img.width*s,img.height*s)}
+  if(hl){if(now>hl.until)hl=null;else hl.cells.forEach(k=>{const[x,y]=k.split(",").map(Number),[px,py]=cellPx(x,y);frame(px,py,TS*s,Math.max(2,Math.round(3*s)),on?"#E0B44A":"#F4EFE3")})}
   if(phase==="follower"&&ghost){
     const[px,py]=cellPx(ghost.x,ghost.y);frame(px,py,TS*s,Math.max(2,Math.round(2*s)),"#E0B44A");
     spots.forEach(o=>{if(pick&&pick.kind===o.kind&&pick.i===o.i)return;const p=E.spotPos(cur,ghost.k,o.kind,o.i),cx=Math.round(px+p[0]*s),cy=Math.round(py+p[1]*s),r=Math.round(6*s),u=Math.max(1,Math.round(2*s));
@@ -360,6 +367,7 @@ cv.addEventListener("pointercancel",e=>{ptrs.delete(e.pointerId);drag=null;pinch
 cv.addEventListener("wheel",e=>{e.preventDefault();zoomBy(e.deltaY<0?1:-1,e.clientX,e.clientY)},{passive:false});
 function tap(cx,cy){
   if(!G)return;const wx=(cx-V.offX)/V.scale,wy=(cy-V.offY)/V.scale,x=Math.floor(wx/STEP),y=Math.floor(wy/STEP);
+  if(G.board[x+","+y]){inspect(x,y,wx-x*STEP-GAP,wy-y*STEP-GAP);return}
   if(phase==="place"){const h=hintList.find(h=>h.x===x&&h.y===y);if(!h)return;
     if(ghost&&ghost.x===x&&ghost.y===y){rotateGhost();return}ghost={x,y,k:h.ks[0],ks:h.ks};renderPanel()}
   else if(phase==="follower"){const lx=wx-ghost.x*STEP-GAP,ly=wy-ghost.y*STEP-GAP;let best=null,bd=24;
@@ -427,7 +435,7 @@ $("setClose").onclick=()=>show("mSet",false);
 
 /* ---------------- rulebook ---------------- */
 let rbI=0;
-function bookMode(m,title){$("bookTitle").textContent=title;$("rbPage").classList.toggle("hide",m!=="rules");$("rbFoot").classList.toggle("hide",m!=="rules");$("stPage").classList.toggle("hide",m!=="stats");$("book").classList.add("on")}
+function bookMode(m,title){$("bookTitle").textContent=title;$("rbPage").classList.toggle("hide",m!=="rules");$("rbFoot").classList.toggle("hide",m!=="rules");$("stPage").classList.toggle("hide",m!=="stats");$("hiPage").classList.toggle("hide",m!=="history");$("book").classList.add("on")}
 $("bookClose").onclick=()=>$("book").classList.remove("on");
 function fitRb(){const im=$("rbPic").querySelector(".frame > img");if(!im||!im.naturalWidth)return;const fr=im.parentNode,dpr=devicePixelRatio||1,s=Math.min(fr.clientWidth/im.naturalWidth,fr.clientHeight/im.naturalHeight);
   let n=Math.floor(s*dpr);if(n<1)n=s*dpr;im.style.width=im.naturalWidth*n/dpr+"px";im.style.height=im.naturalHeight*n/dpr+"px"}
@@ -464,6 +472,30 @@ async function openStats(opp){
   sh("Games played together",String(v.games)+(v.t?" ("+v.t+" tied)":""));sh("Time played together",time(v.mins));
 }
 
+function inspect(x,y,lx,ly){
+  const c=G.board[x+","+y];let best=null,bd=1e9;
+  E.spotList(c.t).forEach(o=>{const p=E.spotPos(c.t,c.k,o.kind,o.i),d=Math.hypot(p[0]-lx,p[1]-ly);if(d<bd){bd=d;best=o}});if(!best)return;
+  const tiles=n=>n+(n===1?" tile":" tiles");let text,cells,fs;
+  if(best.kind==="m"){const n=E.monasteryCount(G,x,y);cells=[x+","+y];fs=G.fols.filter(f=>f.x===x&&f.y===y&&f.kind==="m");text="Monastery: "+n+" of 9 tiles."+(n<9?" Worth "+n+" now.":" Finished.")}
+  else{const tr=E.trace(G,x,y,best.kind,best.i);cells=[...tr.cells];fs=G.fols.filter(f=>tr.nodes.some(n=>n.x===f.x&&n.y===f.y&&n.kind===f.kind&&n.i===f.i));
+    if(best.kind==="c")text="Castle: "+tiles(tr.cells.size)+(tr.shields?", "+tr.shields+(tr.shields===1?" shield":" shields"):"")+(tr.cath?", cathedral":"")+"."+(tr.complete?" Finished.":" Worth "+E.featureValue(tr)+" now.");
+    else if(best.kind==="p")text="Path: "+tiles(tr.cells.size)+"."+(tr.complete?" Finished.":" Worth "+E.featureValue(tr)+" now.");
+    else{const v=E.fieldValue(G,tr);text="Field: touches "+v/3+(v===3?" finished castle.":" finished castles.")+" Worth "+v+" now."}}
+  const n=[0,1].map(i=>fs.filter(f=>f.pl===i).length);
+  text+=n[0]+n[1]?" "+[0,1].filter(i=>n[i]).map(i=>nameOf(i)+" "+n[i]).join(", ")+".":(best.kind==="f"||!/Finished/.test(text)?" Nobody is on it.":"");
+  hl={cells,until:performance.now()+3000};toast(text);
+}
+/* ---------------- move history ---------------- */
+function openHistory(){
+  if(!G)return;bookMode("history","Move history");const box=$("hiList");box.innerHTML="";
+  const turns=G.log.filter(l=>l.type==="turn"),K={c:"castle",p:"path",f:"field",m:"monastery"};
+  if(!turns.length)box.append(el("div","hrow","No moves yet."));
+  turns.map((l,i)=>[l,i]).reverse().forEach(([l,i])=>{
+    const b=el("button","hrow"),auto=gd.moves[i]&&gd.moves[i].auto;
+    b.append(el("span",null,(i+1)+". "+nameOf(l.pl)+(auto?" ran out of time; tile placed":" placed a tile")+(l.follower?", follower on a "+K[l.follower.kind]:"")));
+    const sc=l.events.filter(e=>e.type==="score"&&e.pts>0);if(sc.length)b.append(el("b",null,sc.map(e=>nameOf(e.pl)+" +"+e.pts).join(", ")));
+    b.onclick=()=>{$("book").classList.remove("on");V.offX=snap(V.vw/2-(l.x*STEP+66)*V.scale);V.offY=snap(V.vh/2-(l.y*STEP+66)*V.scale);hl={cells:[l.x+","+l.y],until:performance.now()+3000}};box.append(b)});
+}
 // test hooks
-window.__app={openStats,openRules,openSettings,get S(){return S},get state(){return{gd,G,cur,phase,myIdx,hintList,spots,me,uid,gameId,incoming,outgoing}},E,V,tap,confirmTile,endTurn,submit,
+window.__app={openHistory,inspect,openStats,openRules,openSettings,get S(){return S},get state(){return{gd,G,cur,phase,myIdx,hintList,spots,me,uid,gameId,incoming,outgoing}},E,V,tap,confirmTile,endTurn,submit,
   setGhost(h){ghost={x:h.x,y:h.y,k:h.ks[0],ks:h.ks};renderPanel()}};

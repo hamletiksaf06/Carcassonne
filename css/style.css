@@ -170,3 +170,6 @@ canvas{image-rendering:pixelated}
 #stTbl td.best{color:#B5482F}
 #stTbl tr.shared td:nth-child(2){text-align:center}
 .preview{font-size:7px;color:var(--gold);text-align:center}
+.hrow{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;font:18px/1 VT323,monospace;padding:5px 8px;border:0;border-top:2px solid #D9C8A4;background:none;color:inherit;text-align:left;cursor:pointer}
+.hrow b{color:#B5482F;font-weight:normal;white-space:nowrap}
+.toast{white-space:normal;max-width:80vw;text-align:center;line-height:1.6}
