@@ -14,103 +14,101 @@
 <link rel="icon" href="img/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#2E2219;--wood:#926C46;--woodLt:#B28C62;--woodDk:#6E4E30;--cream:#F4EFE3;--gold:#E0B44A;--panel:#4a3828}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;height:100%;overflow:hidden;background:#17110c;color:var(--cream);font-family:"Press Start 2P",monospace;font-size:8px}
-img{image-rendering:pixelated;image-rendering:crisp-edges;display:block}
-.px{clip-path:polygon(2px 0,calc(100% - 2px) 0,100% 2px,100% calc(100% - 2px),calc(100% - 2px) 100%,2px 100%,0 calc(100% - 2px),0 2px)}
-.pb{font:inherit;color:var(--cream);background:var(--wood);border:2px solid var(--ink);cursor:pointer;box-shadow:inset 2px 2px 0 var(--woodLt),inset -2px -2px 0 var(--woodDk);text-shadow:1px 1px 0 var(--ink);line-height:1.2}
-.pb:active{transform:translate(0,2px)}
-.pb[disabled]{background:#6d6257;box-shadow:inset 2px 2px 0 #857a6e,inset -2px -2px 0 #554b42;color:#b9ad9d}
-.pb.sel{background:#c79a54;box-shadow:inset 2px 2px 0 #e7c27e,inset -2px -2px 0 #8d6a35}
-.tb{font-size:9px;padding:10px 14px}
-.wrap{position:fixed;inset:0;padding:max(8px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left))}
-.tl{position:absolute;left:max(8px,env(safe-area-inset-left));top:max(8px,env(safe-area-inset-top));display:flex;flex-direction:column;gap:4px}
-.badge{height:40px;display:flex;align-items:center;gap:8px;padding:2px 12px 2px 4px;font-size:9px}
-.badge img{width:32px;height:32px}
-.code{font-size:7px;color:#cbbba3;padding-left:4px}
-.mid{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--panel);border:2px solid var(--ink);padding:14px 18px;display:flex;flex-direction:column;gap:10px;align-items:center;min-width:320px}
-.mid h1{font-size:11px;margin:0;color:var(--gold)}
-.big{font-size:32px;text-shadow:4px 4px 0 var(--ink)}
-.sub{font:17px VT323,monospace;color:#d9ccb6;text-align:center;line-height:1}
-.st{position:absolute;right:max(8px,env(safe-area-inset-right));top:max(8px,env(safe-area-inset-top));display:flex;flex-direction:column;gap:4px;font-size:7px;text-align:right}
-.st .ok{color:#a6c96e}.st .bad{color:#ff9a8a}
-.dim{position:fixed;inset:0;background:rgba(23,17,12,.7);display:none;align-items:center;justify-content:center;z-index:5}
-.dim.on{display:flex}
-.modal{background:var(--panel);border:2px solid var(--ink);padding:14px 16px;display:flex;flex-direction:column;gap:10px;align-items:center;min-width:300px}
-.modal h2{font-size:11px;margin:0}
-.pick{display:flex;gap:12px}
-.card{width:84px;height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:6px}
-.card img{width:48px;height:48px}
-.inp{font:18px VT323,monospace;background:#1f1812;color:var(--cream);border:2px solid var(--ink);padding:5px 8px;width:100%}
-.err{color:#ff9a8a;font-size:7px;line-height:1.6;text-align:center;max-width:300px}
-.turn{position:fixed;inset:0;background:var(--ink);display:none;align-items:center;justify-content:center;text-align:center;font-size:11px;line-height:1.8;padding:20px;z-index:9}
-@media (orientation:portrait){.turn{display:flex}}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="wrap">
-  <div class="tl"><button class="pb px badge" id="badge" style="visibility:hidden"><img id="bImg" src="img/i_boy.png" alt=""><span id="bName"></span></button><div class="code" id="bCode"></div></div>
-  <div class="st"><div id="sAuth">Sign-in: ...</div><div id="sDb">Database: ...</div><div id="sInst"></div></div>
-  <div class="mid px">
-    <h1>Connection test</h1>
-    <div class="big" id="num">-</div>
-    <div class="sub" id="last">Waiting for the database</div>
-    <button class="pb px tb" id="plus" disabled>Add 1</button>
-    <div class="sub">Tap the button. The other phone should see the number change at once.</div>
-    <div class="err" id="err"></div>
+<!-- TITLE -->
+<section class="view on" id="vTitle">
+  <img id="bg" src="img/board.png" alt="">
+  <div id="gameTitle">Carcassonne</div>
+  <div class="tl">
+    <button class="pb px ib" id="btnSettings" aria-label="Settings"><img src="img/i_settings.png" alt=""></button>
+    <div><button class="pb px badge hide" id="badge" aria-label="Edit your profile"><img id="bImg" src="img/i_boy.png" alt=""><span id="bName"></span></button><br><span class="code hide" id="bCode"></span></div>
   </div>
+  <div class="center px">
+    <button class="pb px" id="btnNew" disabled>New game</button>
+    <button class="pb px" id="btnCont" disabled>Continue game</button>
+    <button class="pb px" id="btnRules">Rulebook</button>
+    <button class="pb px" id="btnStats">Stats</button>
+  </div>
+  <div class="chal px" id="chal" aria-label="Challenges"></div>
+  <div class="brc"><button class="pb px ib" id="btnMotion" aria-label="Background motion"><img id="motionImg" src="img/i_animations.png" alt=""></button></div>
+</section>
+
+<!-- GAME -->
+<section class="view" id="vGame">
+  <canvas id="cv"></canvas>
+  <div class="gtl">
+    <button class="pb px ib" id="btnMenu" aria-label="Menu"><img src="img/i_menu.png" alt=""></button>
+    <div class="scores px" id="scores"></div>
+    <div class="left px"><img src="img/i_tiles_left.png" alt="Tiles left"><span id="tilesLeft"></span></div>
+  </div>
+  <div class="gbl">
+    <button class="pb px ib" id="btnRec" aria-label="Recentre"><img src="img/i_recentre.png" alt=""></button>
+    <button class="pb px ib" id="btnZo" aria-label="Zoom out"><img src="img/i_zoom_out.png" alt=""></button>
+    <button class="pb px ib" id="btnZi" aria-label="Zoom in"><img src="img/i_zoom_in.png" alt=""></button>
+  </div>
+  <div class="px" id="panel"></div>
+  <div class="px" id="banner"></div>
+  <div class="px" id="final"><h2>Final scoring</h2><div class="tot"><div><img id="fIcon0" alt=""><span id="fName0"></span></div><span id="fTot0"></span></div>
+    <div class="tot"><div><img id="fIcon1" alt=""><span id="fName1"></span></div><span id="fTot1"></span></div><div id="lines"></div>
+    <button class="pb px tb hide" id="btnShowWin">Show result</button></div>
+</section>
+<div id="float"></div>
+
+<!-- VS -->
+<div id="vs">
+  <div class="side"><img id="vsIconA" alt=""><div class="nm" id="vsA"></div><div class="num" id="numA"></div></div>
+  <div class="vsword">VS</div>
+  <div class="side"><img id="vsIconB" alt=""><div class="nm" id="vsB"></div><div class="num" id="numB"></div></div>
+  <div id="vsMsg"></div>
 </div>
-<div class="dim" id="dim"><div class="modal px">
+
+<!-- MODALS -->
+<div class="dim" id="mWho"><div class="modal px">
   <h2>Who are you?</h2>
   <div class="pick"><button class="pb px card" data-g="boy"><img src="img/i_boy.png" alt="">Boy</button><button class="pb px card" data-g="girl"><img src="img/i_girl.png" alt="">Girl</button></div>
-  <input class="inp" id="nm" maxlength="12" placeholder="Your name" autocomplete="off">
-  <button class="pb px tb" id="ok" disabled>Confirm</button>
+  <div class="field"><label for="whoName">Your name</label><input class="inp" id="whoName" maxlength="12" autocomplete="off"></div>
+  <button class="pb px tb" id="whoOk" disabled>Confirm</button>
 </div></div>
+
+<div class="dim" id="mNew"><div class="modal px">
+  <h2>New game</h2>
+  <div class="field"><label for="gName">Game name</label><input class="inp" id="gName" maxlength="20" autocomplete="off"></div>
+  <div class="field"><label>Turn timer</label><div class="opts" id="timers"></div></div>
+  <div class="field"><label>Your colour</label><div class="cols" id="myCols"></div></div>
+  <div class="field"><label>Opponent</label><div class="opts" id="friends"></div>
+    <div class="row" style="width:100%;flex-wrap:nowrap"><input class="inp" id="fCode" maxlength="8" placeholder="Friend code, like HAM-4821" autocomplete="off" autocapitalize="characters"><button class="pb px tb" id="fAdd" style="white-space:nowrap">Add friend</button></div></div>
+  <div class="err" id="newErr"></div>
+  <div class="row"><button class="pb px tb" id="send" disabled>Send challenge</button><button class="pb px tb" id="cancelNew">Cancel</button></div>
+</div></div>
+
+<div class="dim" id="mColor" style="z-index:25"><div class="modal px">
+  <h2>Choose your colour</h2>
+  <div class="cols" id="pickCols"></div>
+  <button class="pb px tb" id="colorOk" disabled>Confirm</button>
+</div></div>
+
+<div class="dim" id="mMenu"><div class="modal px">
+  <h2 id="menuTitle">Menu</h2>
+  <button class="pb px tb" id="menuBack" style="width:100%">Back to start</button>
+  <button class="pb px tb" id="menuEnd" style="width:100%">End game</button>
+  <button class="pb px tb" id="menuClose" style="width:100%">Close</button>
+</div></div>
+
+<div class="dim" id="mConfirm" style="z-index:26"><div class="modal px">
+  <h2>End the game?</h2><div class="sub">This counts as a loss for you.</div>
+  <div class="row"><button class="pb px tb" id="endYes">End game</button><button class="pb px tb" id="endNo">Keep playing</button></div>
+</div></div>
+
+<div class="dim" id="mWin" style="z-index:15"><div class="modal px">
+  <div class="wface"><img class="f" id="wFace" alt=""><img class="c" id="wCrown" src="img/i_crown.png" alt=""></div>
+  <h2 id="wTitle"></h2><div id="wScore"></div>
+  <div class="row"><button class="pb px tb" id="wBoard">View final board</button><button class="pb px tb" id="wBack">Back to start</button></div>
+</div></div>
+
+<div class="toast px" id="toast"></div>
 <div class="turn">Turn your phone sideways</div>
-<script type="module">
-const $=id=>document.getElementById(id),err=m=>{$("err").textContent=m};
-const standalone=matchMedia("(display-mode: fullscreen)").matches||matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
-$("sInst").textContent=standalone?"Installed app: yes":"Installed app: no (browser)";$("sInst").className=standalone?"ok":"";
-if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
-let F,uid,profile=null,icon=null;
-try{F=await import("./js/firebase.js")}catch(e){$("sAuth").textContent="Sign-in: could not load";$("sAuth").className="bad";err("Could not load Firebase. Check the internet connection.");throw e}
-const{auth,db}=F;
-F.onAuthStateChanged(auth,async u=>{
-  if(!u)return;uid=u.uid;$("sAuth").textContent="Sign-in: ok";$("sAuth").className="ok";
-  try{
-    const p=await F.getDoc(F.doc(db,"profiles",uid));
-    if(p.exists()){profile=p.data();showBadge()}else $("dim").classList.add("on");
-    F.onSnapshot(F.doc(db,"test","counter"),s=>{
-      $("sDb").textContent="Database: ok";$("sDb").className="ok";$("plus").disabled=false;
-      const d=s.data();$("num").textContent=d?d.n:0;$("last").textContent=d&&d.by?"Last tap: "+d.by:"Nobody has tapped yet"},
-      e=>dbErr(e));
-  }catch(e){dbErr(e)}
-});
-function dbErr(e){$("sDb").textContent="Database: blocked";$("sDb").className="bad";
-  err(e.code==="permission-denied"?"The database refused access. The Firestore rules still need to be set.":"Database error: "+(e.code||e.message))}
-F.signInAnonymously(auth).catch(e=>{$("sAuth").textContent="Sign-in: failed";$("sAuth").className="bad";
-  err(e.code==="auth/admin-restricted-operation"||e.code==="auth/operation-not-allowed"?"Anonymous sign-in is not switched on in Firebase yet.":"Sign-in error: "+e.code)});
-function showBadge(){$("bImg").src=profile.icon==="girl"?"img/i_girl.png":"img/i_boy.png";$("bName").textContent=profile.name;$("bCode").textContent=profile.code;$("badge").style.visibility="visible"}
-document.querySelectorAll(".card").forEach(c=>c.onclick=()=>{icon=c.dataset.g;document.querySelectorAll(".card").forEach(x=>x.classList.toggle("sel",x===c));upd()});
-const upd=()=>{$("ok").disabled=!(icon&&$("nm").value.trim())};$("nm").oninput=upd;
-$("badge").onclick=()=>{icon=profile.icon;$("nm").value=profile.name;document.querySelectorAll(".card").forEach(x=>x.classList.toggle("sel",x.dataset.g===icon));upd();$("dim").classList.add("on")};
-async function newCode(name){
-  const pre=(name.toUpperCase().replace(/[^A-Z]/g,"")+"XXX").slice(0,3);
-  for(let i=0;i<20;i++){const code=pre+"-"+String(1000+Math.floor(Math.random()*9000));
-    const ref=F.doc(db,"codes",code);
-    const ok=await F.runTransaction(db,async t=>{if((await t.get(ref)).exists())return false;t.set(ref,{uid});return true});
-    if(ok)return code}
-  throw new Error("no free code");
-}
-$("ok").onclick=async()=>{
-  $("ok").disabled=true;const name=$("nm").value.trim();
-  try{const code=profile?.code||await newCode(name);profile={name,icon,code};
-    await F.setDoc(F.doc(db,"profiles",uid),profile,{merge:true});showBadge();$("dim").classList.remove("on")}
-  catch(e){dbErr(e);$("dim").classList.remove("on")}
-};
-$("plus").onclick=()=>F.setDoc(F.doc(db,"test","counter"),{n:F.increment(1),by:profile?profile.name:"someone"},{merge:true}).catch(dbErr);
-</script>
+<script type="module" src="js/app.js"></script>
 </body>
 </html>
