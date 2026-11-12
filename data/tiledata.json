@@ -1,0 +1,2054 @@
+{
+ "1": {
+  "name": "Crossroads",
+  "castles": [],
+  "paths": [
+   [
+    "N"
+   ],
+   [
+    "E"
+   ],
+   [
+    "S"
+   ],
+   [
+    "W"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Nb",
+     "Ea"
+    ],
+    "castles": []
+   },
+   {
+    "ports": [
+     "Eb",
+     "Sa"
+    ],
+    "castles": []
+   },
+   {
+    "ports": [
+     "Sb",
+     "Wa"
+    ],
+    "castles": []
+   },
+   {
+    "ports": [
+     "Wb",
+     "Na"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [],
+   "paths": [
+    [
+     72,
+     22
+    ],
+    [
+     105,
+     72
+    ],
+    [
+     54,
+     100
+    ],
+    [
+     27,
+     54
+    ]
+   ],
+   "fields": [
+    [
+     105,
+     22
+    ],
+    [
+     102,
+     105
+    ],
+    [
+     23,
+     104
+    ],
+    [
+     36,
+     23
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "2": {
+  "name": "Full castle + shield",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "E",
+     "S",
+     "W"
+    ],
+    "shield": true,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [],
+  "spots": {
+   "castles": [
+    [
+     30,
+     98
+    ]
+   ],
+   "paths": [],
+   "fields": [],
+   "monastery": null
+  }
+ },
+ "3": {
+  "name": "Monastery",
+  "castles": [],
+  "paths": [],
+  "monastery": true,
+  "fields": [
+   {
+    "ports": [
+     "Na",
+     "Nb",
+     "Ea",
+     "Eb",
+     "Sa",
+     "Sb",
+     "Wa",
+     "Wb"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [],
+   "paths": [],
+   "fields": [
+    [
+     23,
+     104
+    ]
+   ],
+   "monastery": [
+    68,
+    60
+   ]
+  }
+ },
+ "4": {
+  "name": "Monastery + path",
+  "castles": [],
+  "paths": [
+   [
+    "S"
+   ]
+  ],
+  "monastery": true,
+  "fields": [
+   {
+    "ports": [
+     "Na",
+     "Nb",
+     "Ea",
+     "Eb",
+     "Sa",
+     "Sb",
+     "Wa",
+     "Wb"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [],
+   "paths": [
+    [
+     54,
+     100
+    ]
+   ],
+   "fields": [
+    [
+     23,
+     104
+    ]
+   ],
+   "monastery": [
+    68,
+    60
+   ]
+  }
+ },
+ "5": {
+  "name": "Crossing",
+  "castles": [],
+  "paths": [
+   [
+    "E"
+   ],
+   [
+    "S"
+   ],
+   [
+    "W"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Wb",
+     "Na",
+     "Nb",
+     "Ea"
+    ],
+    "castles": []
+   },
+   {
+    "ports": [
+     "Eb",
+     "Sa"
+    ],
+    "castles": []
+   },
+   {
+    "ports": [
+     "Sb",
+     "Wa"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [],
+   "paths": [
+    [
+     105,
+     72
+    ],
+    [
+     54,
+     100
+    ],
+    [
+     27,
+     54
+    ]
+   ],
+   "fields": [
+    [
+     93,
+     32
+    ],
+    [
+     102,
+     105
+    ],
+    [
+     23,
+     104
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "6": {
+  "name": "Three-sided castle",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "E",
+     "W"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Sa",
+     "Sb"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     45,
+     45
+    ]
+   ],
+   "paths": [],
+   "fields": [
+    [
+     54,
+     109
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "7": {
+  "name": "Three-sided castle + shield",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "E",
+     "W"
+    ],
+    "shield": true,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Sa",
+     "Sb"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     45,
+     45
+    ]
+   ],
+   "paths": [],
+   "fields": [
+    [
+     54,
+     109
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "8": {
+  "name": "Three-sided castle + path",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "E",
+     "W"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "S"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Sa"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Sb"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     45,
+     45
+    ]
+   ],
+   "paths": [
+    [
+     54,
+     100
+    ]
+   ],
+   "fields": [
+    [
+     85,
+     110
+    ],
+    [
+     35,
+     115
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "9": {
+  "name": "Three-sided castle + path + shield",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "E",
+     "W"
+    ],
+    "shield": true,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "S"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Sa"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Sb"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     45,
+     45
+    ]
+   ],
+   "paths": [
+    [
+     54,
+     100
+    ]
+   ],
+   "fields": [
+    [
+     85,
+     110
+    ],
+    [
+     35,
+     115
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "10": {
+  "name": "Straight path",
+  "castles": [],
+  "paths": [
+   [
+    "N",
+    "S"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Nb",
+     "Ea",
+     "Eb",
+     "Sa"
+    ],
+    "castles": []
+   },
+   {
+    "ports": [
+     "Sb",
+     "Wa",
+     "Wb",
+     "Na"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [],
+   "paths": [
+    [
+     72,
+     67
+    ]
+   ],
+   "fields": [
+    [
+     98,
+     98
+    ],
+    [
+     33,
+     40
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "11": {
+  "name": "Corner castle",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "W"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Ea",
+     "Eb",
+     "Sa",
+     "Sb"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     37,
+     37
+    ]
+   ],
+   "paths": [],
+   "fields": [
+    [
+     92,
+     92
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "12": {
+  "name": "Corner castle + shield",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "W"
+    ],
+    "shield": true,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Ea",
+     "Eb",
+     "Sa",
+     "Sb"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     37,
+     37
+    ]
+   ],
+   "paths": [],
+   "fields": [
+    [
+     92,
+     92
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "13": {
+  "name": "Corner castle + path",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "W"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "E",
+    "S"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Ea",
+     "Sb"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Eb",
+     "Sa"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     37,
+     37
+    ]
+   ],
+   "paths": [
+    [
+     78,
+     80
+    ]
+   ],
+   "fields": [
+    [
+     35,
+     107
+    ],
+    [
+     103,
+     102
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "14": {
+  "name": "Corner castle + path + shield",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "W"
+    ],
+    "shield": true,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "E",
+    "S"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Ea",
+     "Sb"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Eb",
+     "Sa"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     37,
+     37
+    ]
+   ],
+   "paths": [
+    [
+     78,
+     80
+    ]
+   ],
+   "fields": [
+    [
+     35,
+     107
+    ],
+    [
+     103,
+     102
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "15": {
+  "name": "Curved path",
+  "castles": [],
+  "paths": [
+   [
+    "S",
+    "W"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Sb",
+     "Wa"
+    ],
+    "castles": []
+   },
+   {
+    "ports": [
+     "Wb",
+     "Na",
+     "Nb",
+     "Ea",
+     "Eb",
+     "Sa"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [],
+   "paths": [
+    [
+     47,
+     78
+    ]
+   ],
+   "fields": [
+    [
+     24,
+     102
+    ],
+    [
+     84,
+     43
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "16": {
+  "name": "Castle across",
+  "castles": [
+   {
+    "sides": [
+     "E",
+     "W"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Na",
+     "Nb"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Sa",
+     "Sb"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     30,
+     64
+    ]
+   ],
+   "paths": [],
+   "fields": [
+    [
+     64,
+     17
+    ],
+    [
+     54,
+     109
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "17": {
+  "name": "Castle across + shield",
+  "castles": [
+   {
+    "sides": [
+     "E",
+     "W"
+    ],
+    "shield": true,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Na",
+     "Nb"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Sa",
+     "Sb"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     30,
+     64
+    ]
+   ],
+   "paths": [],
+   "fields": [
+    [
+     64,
+     17
+    ],
+    [
+     54,
+     109
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "18": {
+  "name": "Castle edge + curve right",
+  "castles": [
+   {
+    "sides": [
+     "N"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "E",
+    "S"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Ea",
+     "Sb",
+     "Wa",
+     "Wb"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Eb",
+     "Sa"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     64,
+     20
+    ]
+   ],
+   "paths": [
+    [
+     78,
+     80
+    ]
+   ],
+   "fields": [
+    [
+     31,
+     81
+    ],
+    [
+     103,
+     102
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "19": {
+  "name": "Castle edge + curve left",
+  "castles": [
+   {
+    "sides": [
+     "N"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "S",
+    "W"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Wb",
+     "Ea",
+     "Eb",
+     "Sa"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Sb",
+     "Wa"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     64,
+     20
+    ]
+   ],
+   "paths": [
+    [
+     47,
+     78
+    ]
+   ],
+   "fields": [
+    [
+     97,
+     80
+    ],
+    [
+     24,
+     102
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "20": {
+  "name": "Castle edge",
+  "castles": [
+   {
+    "sides": [
+     "N"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Ea",
+     "Eb",
+     "Sa",
+     "Sb",
+     "Wa",
+     "Wb"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     64,
+     20
+    ]
+   ],
+   "paths": [],
+   "fields": [
+    [
+     60,
+     86
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "21": {
+  "name": "Two castle edges, neighbouring",
+  "castles": [
+   {
+    "sides": [
+     "N"
+    ],
+    "shield": false,
+    "cathedral": false
+   },
+   {
+    "sides": [
+     "E"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Sa",
+     "Sb",
+     "Wa",
+     "Wb"
+    ],
+    "castles": [
+     0,
+     1
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     64,
+     20
+    ],
+    [
+     108,
+     64
+    ]
+   ],
+   "paths": [],
+   "fields": [
+    [
+     38,
+     88
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "22": {
+  "name": "Two castle edges, opposite",
+  "castles": [
+   {
+    "sides": [
+     "W"
+    ],
+    "shield": false,
+    "cathedral": false
+   },
+   {
+    "sides": [
+     "E"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Na",
+     "Nb",
+     "Sa",
+     "Sb"
+    ],
+    "castles": [
+     0,
+     1
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     20,
+     64
+    ],
+    [
+     108,
+     64
+    ]
+   ],
+   "paths": [],
+   "fields": [
+    [
+     64,
+     64
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "23": {
+  "name": "Castle edge + crossing",
+  "castles": [
+   {
+    "sides": [
+     "N"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "E"
+   ],
+   [
+    "S"
+   ],
+   [
+    "W"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Wb",
+     "Ea"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Eb",
+     "Sa"
+    ],
+    "castles": []
+   },
+   {
+    "ports": [
+     "Sb",
+     "Wa"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     64,
+     20
+    ]
+   ],
+   "paths": [
+    [
+     105,
+     72
+    ],
+    [
+     54,
+     100
+    ],
+    [
+     27,
+     54
+    ]
+   ],
+   "fields": [
+    [
+     11,
+     38
+    ],
+    [
+     102,
+     105
+    ],
+    [
+     23,
+     104
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "24": {
+  "name": "Castle edge + straight path (start)",
+  "castles": [
+   {
+    "sides": [
+     "N"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "E",
+    "W"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Wb",
+     "Ea"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Eb",
+     "Sa",
+     "Sb",
+     "Wa"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     64,
+     20
+    ]
+   ],
+   "paths": [
+    [
+     64,
+     73
+    ]
+   ],
+   "fields": [
+    [
+     11,
+     38
+    ],
+    [
+     29,
+     98
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "25": {
+  "name": "Four castle edges",
+  "castles": [
+   {
+    "sides": [
+     "N"
+    ],
+    "shield": false,
+    "cathedral": false
+   },
+   {
+    "sides": [
+     "E"
+    ],
+    "shield": false,
+    "cathedral": false
+   },
+   {
+    "sides": [
+     "S"
+    ],
+    "shield": false,
+    "cathedral": false
+   },
+   {
+    "sides": [
+     "W"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [],
+    "castles": [
+     0,
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     64,
+     20
+    ],
+    [
+     108,
+     64
+    ],
+    [
+     64,
+     108
+    ],
+    [
+     20,
+     64
+    ]
+   ],
+   "paths": [],
+   "fields": [
+    [
+     63,
+     63
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "27": {
+  "name": "Three castle edges",
+  "castles": [
+   {
+    "sides": [
+     "N"
+    ],
+    "shield": false,
+    "cathedral": false
+   },
+   {
+    "sides": [
+     "E"
+    ],
+    "shield": false,
+    "cathedral": false
+   },
+   {
+    "sides": [
+     "S"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Wa",
+     "Wb"
+    ],
+    "castles": [
+     0,
+     1,
+     2
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     64,
+     20
+    ],
+    [
+     108,
+     64
+    ],
+    [
+     64,
+     108
+    ]
+   ],
+   "paths": [],
+   "fields": [
+    [
+     19,
+     61
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "28": {
+  "name": "Corner castle + castle edge + shield",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "W"
+    ],
+    "shield": true,
+    "cathedral": false
+   },
+   {
+    "sides": [
+     "S"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Ea",
+     "Eb"
+    ],
+    "castles": [
+     0,
+     1
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     37,
+     37
+    ],
+    [
+     64,
+     108
+    ]
+   ],
+   "paths": [],
+   "fields": [
+    [
+     108,
+     66
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "29": {
+  "name": "Cathedral",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "E",
+     "S",
+     "W"
+    ],
+    "shield": false,
+    "cathedral": true
+   }
+  ],
+  "paths": [],
+  "monastery": false,
+  "fields": [],
+  "spots": {
+   "castles": [
+    [
+     30,
+     98
+    ]
+   ],
+   "paths": [],
+   "fields": [],
+   "monastery": null
+  }
+ },
+ "30": {
+  "name": "Castle edge + path",
+  "castles": [
+   {
+    "sides": [
+     "N"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "S"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Ea",
+     "Eb",
+     "Sa"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Sb",
+     "Wa",
+     "Wb"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     64,
+     20
+    ]
+   ],
+   "paths": [
+    [
+     54,
+     100
+    ]
+   ],
+   "fields": [
+    [
+     98,
+     98
+    ],
+    [
+     26,
+     74
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "31": {
+  "name": "Corner castle + path",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "E"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "S"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Sa"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Sb",
+     "Wa",
+     "Wb"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     90,
+     37
+    ]
+   ],
+   "paths": [
+    [
+     54,
+     100
+    ]
+   ],
+   "fields": [
+    [
+     74,
+     110
+    ],
+    [
+     28,
+     63
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "32": {
+  "name": "Castle across + paths + shield",
+  "castles": [
+   {
+    "sides": [
+     "E",
+     "W"
+    ],
+    "shield": true,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "N"
+   ],
+   [
+    "S"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Na"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Nb"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Sa"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Sb"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     30,
+     64
+    ]
+   ],
+   "paths": [
+    [
+     72,
+     22
+    ],
+    [
+     54,
+     100
+    ]
+   ],
+   "fields": [
+    [
+     26,
+     10
+    ],
+    [
+     106,
+     9
+    ],
+    [
+     85,
+     110
+    ],
+    [
+     35,
+     115
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "33": {
+  "name": "Two castle edges + path between",
+  "castles": [
+   {
+    "sides": [
+     "N"
+    ],
+    "shield": false,
+    "cathedral": false
+   },
+   {
+    "sides": [
+     "S"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "E",
+    "W"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Wb",
+     "Ea"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Eb",
+     "Wa"
+    ],
+    "castles": [
+     1
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     64,
+     20
+    ],
+    [
+     64,
+     108
+    ]
+   ],
+   "paths": [
+    [
+     64,
+     73
+    ]
+   ],
+   "fields": [
+    [
+     11,
+     38
+    ],
+    [
+     116,
+     89
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "34": {
+  "name": "Monastery + straight path",
+  "castles": [],
+  "paths": [
+   [
+    "E"
+   ],
+   [
+    "W"
+   ]
+  ],
+  "monastery": true,
+  "fields": [
+   {
+    "ports": [
+     "Wb",
+     "Na",
+     "Nb",
+     "Ea"
+    ],
+    "castles": []
+   },
+   {
+    "ports": [
+     "Eb",
+     "Sa",
+     "Sb",
+     "Wa"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [],
+   "paths": [
+    [
+     109,
+     70
+    ],
+    [
+     27,
+     54
+    ]
+   ],
+   "fields": [
+    [
+     106,
+     19
+    ],
+    [
+     23,
+     104
+    ]
+   ],
+   "monastery": [
+    68,
+    60
+   ]
+  }
+ },
+ "38": {
+  "name": "Two curved paths",
+  "castles": [],
+  "paths": [
+   [
+    "S",
+    "W"
+   ],
+   [
+    "N",
+    "E"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Sb",
+     "Wa"
+    ],
+    "castles": []
+   },
+   {
+    "ports": [
+     "Nb",
+     "Ea"
+    ],
+    "castles": []
+   },
+   {
+    "ports": [
+     "Wb",
+     "Na",
+     "Eb",
+     "Sa"
+    ],
+    "castles": []
+   }
+  ],
+  "spots": {
+   "castles": [],
+   "paths": [
+    [
+     47,
+     78
+    ],
+    [
+     80,
+     49
+    ]
+   ],
+   "fields": [
+    [
+     24,
+     102
+    ],
+    [
+     102,
+     24
+    ],
+    [
+     27,
+     29
+    ]
+   ],
+   "monastery": null
+  }
+ },
+ "39": {
+  "name": "Corner castle + path",
+  "castles": [
+   {
+    "sides": [
+     "N",
+     "E"
+    ],
+    "shield": false,
+    "cathedral": false
+   }
+  ],
+  "paths": [
+   [
+    "W"
+   ]
+  ],
+  "monastery": false,
+  "fields": [
+   {
+    "ports": [
+     "Wb"
+    ],
+    "castles": [
+     0
+    ]
+   },
+   {
+    "ports": [
+     "Wa",
+     "Sb",
+     "Sa"
+    ],
+    "castles": [
+     0
+    ]
+   }
+  ],
+  "spots": {
+   "castles": [
+    [
+     90,
+     37
+    ]
+   ],
+   "paths": [
+    [
+     27,
+     54
+    ]
+   ],
+   "fields": [
+    [
+     17,
+     30
+    ],
+    [
+     29,
+     98
+    ]
+   ],
+   "monastery": null
+  }
+ }
+}
