@@ -76,7 +76,8 @@ Known limitations:
 2. **Notifications:** your turn, new challenge, new chat message, with one switch in settings. Needs Firebase pay-as-you-go or a free Cloudflare Worker.
 3. **Selling on itch.io.** Before selling (not legal advice; check each):
     - Rename the game. "Carcassonne" is the board game publisher's trademark. Rules generally can't be owned; name and official art can. Check nothing copies the original art too closely.
-    - Music: only if Hamlet made it or has a commercial licence. Fonts (Press Start 2P, VT323) are open-licence and fine.
+    - Music: "Medieval Background" by DELOSOUND, almost certainly from Pixabay (file delosound-medieval-background-351307.mp3, 1:50, cut into the 82-second loop). The Pixabay Content License allows use inside a game, including commercially, with no credit required; it forbids selling the track on its own. To do: confirm the track page on Pixabay, save a screenshot of it and the licence, and credit the artist in the game anyway.
+    - Fonts (Press Start 2P, VT323) are open-licence and fine.
     - Strangers: block or mute in chat (or no chat in quick matches), tighter Firestore rules, some server-side move checking.
     - Costs: the free Firebase plan covers a few hundred daily players; beyond that, the paid plan with a spending limit.
     - Pricing: online play needs both players to own it, so free or pay-what-you-want may work better. itch.io can host the HTML5 build in the browser.
